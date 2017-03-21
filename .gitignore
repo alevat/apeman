@@ -4,3 +4,6 @@
 
 # IntelliJ IDEA
 /.idea
+
+# Enterprise Architect
+/**/*.ldb
