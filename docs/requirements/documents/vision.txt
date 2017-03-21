@@ -14,4 +14,4 @@ APEMAN will itself be used to track its own project management starting with thi
 == Features
 
 .Ordered
-. Online cardwall - supports addition of columns, cards, transition of cards.
+. Online cardwall - supports addition of columns, cards, transition of cards.   
