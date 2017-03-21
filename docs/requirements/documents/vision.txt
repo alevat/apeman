@@ -1,0 +1,11 @@
+== Introduction
+
+APEMAN (short for Agile Project Estimation and Management) is envisioned as a set of integrated tools to track
+all aspects of an Agile project, adding as little overhead as possible while capturing and tracking project
+measurements to support estimation, project tracking and project controls.
+
+== Features
+
+.Ordered
+. Online cardwall - supports addition of columns, cards, transition of cards.
+. Project task library - provides reusable project tasks for project planning.
