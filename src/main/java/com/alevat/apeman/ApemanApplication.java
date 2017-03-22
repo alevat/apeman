@@ -9,5 +9,5 @@ public class ApemanApplication {
     public static void main(String[] args) {
         SpringApplication.run(ApemanApplication.class, args);
     }
-    
+
 }

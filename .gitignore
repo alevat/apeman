@@ -7,3 +7,6 @@
 
 # Enterprise Architect
 /**/*.ldb
+
+# AngularJS
+/node_modules

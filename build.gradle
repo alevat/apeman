@@ -1,17 +1,23 @@
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
 
     dependencies {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE'
         classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
+        classpath "com.moowork.gradle:gradle-node-plugin:1.1.1"
     }
 }
 
-apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'java'
+apply plugin: 'war'
 apply plugin: 'org.springframework.boot'
+apply plugin: "com.moowork.node"
+apply plugin: 'org.asciidoctor.convert'
 
 repositories {
     jcenter()
@@ -23,6 +29,12 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+task webpack(type: NodeTask) {
+    dependsOn npmInstall
+    script = file("${project.projectDir}/node_modules/.bin/webpack")
+    args = ["--config", "webpack/webpack.build.js"]
+}
+
 asciidoctor {
     sourceDir = file('docs')
     sources {
@@ -30,5 +42,6 @@ asciidoctor {
     }
     outputDir = file('build/docs')
 }
+processResources.dependsOn 'webpack'
 
-
+webAppDirName = 'build/webapp'

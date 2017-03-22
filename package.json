@@ -1,0 +1,22 @@
+{
+  "name": "apeman",
+  "version": "0.0.1",
+  "description": "AngularJS with Typescript application front-end for Agile Project Estimation and Management (APEMAN)",
+  "main": "/",
+  "scripts": {
+    "start": "webpack --config webpack/webpack.dev.js --watch",
+    "test": "karma start --NODE_ENV=test"
+  },
+  "author": "Eric Tavela <etavela@alevat.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/angular": "~1.6.10",
+    "lodash": "~4.17.4 "
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "~2.28.0",
+    "ts-loader": "~2.0.2",
+    "typescript": "~2.2.1",
+    "webpack": "~2.3.0"
+  }
+}
