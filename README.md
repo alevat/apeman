@@ -1,2 +1,1 @@
-# apeman
-Agile Project Estimation and Management Suite
+# Agile Project Estimation and Management (APEMAN)
