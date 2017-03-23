@@ -1,3 +1,5 @@
+import org.gradle.internal.os.OperatingSystem;
+
 buildscript {
     repositories {
         jcenter()
@@ -34,7 +36,11 @@ dependencies {
 
 task webpack(type: NodeTask) {
     dependsOn npmInstall
-    script = file("${project.projectDir}/node_modules/.bin/webpack")
+    if (OperatingSystem.current().isWindows()) {
+        script = file("${project.projectDir}/node_modules/webpack/bin/webpack.js")
+    } else {
+        script = file("${project.projectDir}/node_modules/.bin/webpack")
+    }
     args = ["--config", "webpack/webpack.build.js"]
 }
 
