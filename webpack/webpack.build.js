@@ -3,17 +3,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     context: path.resolve(__dirname, '..'),
-    entry: './src/main/webapp/app/index.ts',
+    entry: './src/main/web-src/app/index.ts',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, '../build/webapp')
+        path: path.resolve(__dirname, '../src/main/webapp')
     },
     resolve: {
         extensions: ['.ts', '.js', '.json']
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/main/webapp//index.html',
+            template: './src/main/web-src/index.html',
             inject: 'body',
             hash: true
         })

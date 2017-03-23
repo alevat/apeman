@@ -1,12 +1,62 @@
+######################
+# Project Specific
+######################
+/src/main/webapp
+
+######################
+# Node
+######################
+/node/**
+/node_modules/**
+
+######################
+# Intellij
+######################
+.idea/**
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+
+######################
 # Gradle
-/.gradle
-/build
+######################
+.gradle/**
 
-# IntelliJ IDEA
-/.idea
+######################
+# Directories
+######################
+/build/**
 
+
+######################
+# Mac OSX
+######################
+.DS_Store
+.svn
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+######################
 # Enterprise Architect
+######################
 /**/*.ldb
 
-# AngularJS
-/node_modules
+######################
+# Logs
+######################
+*.log
+
+######################
+# Others
+######################
+*.class
+*.*~
+*~
+.merge_file*

@@ -47,4 +47,4 @@ asciidoctor {
 }
 processResources.dependsOn 'webpack'
 
-webAppDirName = 'build/webapp'
+clean.delete << file('src/main/webapp')
