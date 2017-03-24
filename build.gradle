@@ -3,45 +3,22 @@ import org.gradle.internal.os.OperatingSystem;
 buildscript {
     repositories {
         jcenter()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
     }
 
     dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE'
-        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
-        classpath "com.moowork.gradle:gradle-node-plugin:1.1.1"
+        classpath "org.asciidoctor:asciidoctor-gradle-plugin:${asciidoctor_gradle_plugin_version}"
     }
 }
-
-apply plugin: 'java'
-apply plugin: 'war'
-apply plugin: 'org.springframework.boot'
-apply plugin: "com.moowork.node"
-apply plugin: 'org.asciidoctor.convert'
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
     jcenter()
 }
 
-dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-web'
+apply plugin: 'org.asciidoctor.convert'
 
-    testCompile 'junit:junit:4.12'
-}
-
-task webpack(type: NodeTask) {
-    dependsOn npmInstall
-    if (OperatingSystem.current().isWindows()) {
-        script = file("${project.projectDir}/node_modules/webpack/bin/webpack.js")
-    } else {
-        script = file("${project.projectDir}/node_modules/.bin/webpack")
-    }
-    args = ["--config", "webpack/webpack.build.js"]
+allprojects {
+    group = 'com.alevat.apeman'
+    version = '0.0.1'
 }
 
 asciidoctor {
@@ -51,6 +28,3 @@ asciidoctor {
     }
     outputDir = file('build/docs')
 }
-processResources.dependsOn 'webpack'
-
-clean.delete << file('src/main/webapp')

@@ -9,11 +9,7 @@
     "outDir": "out"
   },
   "exclude": [
-    "out",
-    "node_modules",
-    "dist",
-    "dev",
-    "reports"
+    "node_modules"
   ],
   "version": "2.2.1"
 }

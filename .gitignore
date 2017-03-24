@@ -1,13 +1,13 @@
 ######################
 # Project Specific
 ######################
-/src/main/webapp
+/components/java/spring-boot/src/main/webapp
 
 ######################
 # Node
 ######################
-/node/**
-/node_modules/**
+**/node/**
+**/node_modules/**
 
 ######################
 # Intellij
@@ -27,7 +27,7 @@
 ######################
 # Directories
 ######################
-/build/**
+**/build/**
 
 
 ######################

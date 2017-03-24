@@ -3,17 +3,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     context: path.resolve(__dirname, '..'),
-    entry: './src/main/web-src/app/index.ts',
+    entry: './src/main/webapp/app/index.ts',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, '../src/main/webapp')
+        path: path.resolve(__dirname, '../build/webapp')
     },
     resolve: {
         extensions: ['.ts', '.js', '.json']
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/main/web-src/index.html',
+            template: './src/main/webapp/index.html',
             inject: 'body',
             hash: true
         })
@@ -21,8 +21,9 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.ts(x?)$/, 
-                loader: 'ts-loader'
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                use: 'ts-loader'
             }
         ]
     }
