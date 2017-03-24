@@ -26,5 +26,9 @@ task webpack(type: NodeTask) {
 }
 
 task build {
-    webpack
+    dependsOn webpack
+}
+
+task clean {
+    delete file('build')
 }

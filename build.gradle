@@ -15,6 +15,10 @@ repositories {
 }
 
 apply plugin: 'org.asciidoctor.convert'
+apply plugin: 'java'
+
+sourceCompatibility = java_source_compatibility
+targetCompatibility = java_target_compatibility
 
 allprojects {
     group = 'com.alevat.apeman'

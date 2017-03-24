@@ -1,8 +1,0 @@
-apply plugin: 'java'
-
-//sourceCompatibility = ${java_source_compatibility}
-//targetCompatibility = ${java_target_compatibility}
-
-dependencies {
-    testCompile 'junit:junit:4.12'
-}

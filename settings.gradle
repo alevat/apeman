@@ -2,7 +2,6 @@ rootProject.name = 'apeman'
 
 include 'components:angularjs:apeman-app'
 
-include 'components:java'
 include 'components:java:rest-resources:api'
 include 'components:java:rest-resources:implementation'
 include 'components:java:spring-boot'

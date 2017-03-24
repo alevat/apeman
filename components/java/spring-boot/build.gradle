@@ -23,9 +23,9 @@ dependencies {
 
 clean.delete << file('src/main/webapp')
 
-task copyAngularApp(type: Copy) {
+task copyAngularApp(type: Copy, dependsOn: ':components:angularjs:apeman-app:build') {
     from project(':components:angularjs:apeman-app').file('build/webapp')
     into file('src/main/webapp')
 }
 
-processResources.doFirst({copyAngularApp})
+processResources.dependsOn copyAngularApp
