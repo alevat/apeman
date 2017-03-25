@@ -1,25 +1,7 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}"
-    }
-}
-
-repositories {
-    jcenter()
-}
-
 apply plugin: 'war'
 apply plugin: 'org.springframework.boot'
 
 archivesBaseName = 'apeman-spring-boot'
-
-dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-web'
-}
 
 clean.delete << file('src/main/webapp')
 
