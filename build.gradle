@@ -41,6 +41,7 @@ configure(javaProjects) {
     }
     dependencies {
         compile 'org.springframework.boot:spring-boot-starter-web'
+        compile "com.google.guava:guava:${guava_version}"
     }
 }
 

@@ -5,6 +5,7 @@ archivesBaseName = 'apeman-spring-boot'
 
 dependencies {
     compile project(':components:java:rest-resources:api')
+    runtime project(':components:java:rest-resources:implementation')
 }
 
 clean.delete << file('src/main/webapp')

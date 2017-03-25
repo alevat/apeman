@@ -5,4 +5,5 @@ include 'components:angularjs:apeman-app'
 include 'components:java:rest-resources:api'
 include 'components:java:rest-resources:implementation'
 include 'components:java:spring-boot'
+include 'components:java:shared-api'
 
