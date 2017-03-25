@@ -1,7 +1,20 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}"
+    }
+}
 apply plugin: 'war'
 apply plugin: 'org.springframework.boot'
 
 archivesBaseName = 'apeman-spring-boot'
+
+dependencies {
+    compile project(':components:java:rest-resources:api')
+}
 
 clean.delete << file('src/main/webapp')
 

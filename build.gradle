@@ -22,21 +22,7 @@ allprojects {
 
 def javaProjects = subprojects.findAll {it.project.path.startsWith(':components:java')}
 
-subprojects {
-    println "subproject: $project.path"
-}
-
 configure(javaProjects) {
-    buildscript {
-        repositories {
-            jcenter()
-        }
-
-        dependencies {
-            classpath "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}"
-        }
-    }
-
     repositories {
         jcenter()
     }
