@@ -5,6 +5,7 @@ buildscript {
 
     dependencies {
         classpath "org.asciidoctor:asciidoctor-gradle-plugin:${asciidoctor_gradle_plugin_version}"
+        classpath "io.spring.gradle:dependency-management-plugin:${dependency_management_plugin_version}"
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}"
     }
 }
@@ -28,10 +29,16 @@ configure(javaProjects) {
     }
 
     apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
 
     sourceCompatibility = java_source_compatibility
     targetCompatibility = java_target_compatibility
 
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-dependencies:${spring_boot_version}")
+        }
+    }
     dependencies {
         compile 'org.springframework.boot:spring-boot-starter-web'
     }
