@@ -1,5 +1,6 @@
-import angular from 'angular';
-import uiRouter, {IStateProvider, IUrlRouterProvider} from 'angular-ui-router'
+import * as angular from 'angular';
+import uiRouter from 'angular-ui-router'
+import {IStateProvider, IUrlRouterProvider} from '@types/angular-ui-router'
 import {HomeComponent} from './home.component'
 import {MenuModule} from "../menu/menu.module";
 

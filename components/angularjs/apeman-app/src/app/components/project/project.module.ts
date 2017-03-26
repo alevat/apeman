@@ -1,4 +1,4 @@
-import angular from 'angular';
+import * as angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import { ProjectComponent } from './project.component';
 
