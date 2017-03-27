@@ -16,7 +16,7 @@ export const HomeModule = angular
                 url: '/home',
                 component: 'home'
             });
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/home');
     })
     .run(($log) => {$log.debug("Initialized HomeModule")})
     .name;

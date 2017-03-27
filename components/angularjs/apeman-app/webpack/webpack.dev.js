@@ -29,6 +29,10 @@ const config = {
                 test: /\.ts$/,
                 exclude: /node_modules/,
                 use: 'ts-loader'
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                loader: 'file?name=fonts/[name].[ext]',
             }
         ]
     }

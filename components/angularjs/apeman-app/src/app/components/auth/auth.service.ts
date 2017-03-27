@@ -1,4 +1,5 @@
 import {ILogService} from "angular";
+
 export class AuthService {
 
     static $inject: string[] = ['$log'];
