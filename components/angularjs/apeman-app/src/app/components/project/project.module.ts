@@ -16,6 +16,7 @@ export const ProjectModule = angular
             });
         $urlRouterProvider.otherwise('/');
     })
+    .run(($log) => {$log.debug("Initialized ProjectModule")})
     .name;
 
 export default ProjectModule;

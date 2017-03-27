@@ -1,5 +1,5 @@
 import * as angular from 'angular';
-import loader from 'angular-loading-bar';
+import * as loader from 'angular-loading-bar';
 import { HomeModule } from './home/home.module';
 
 export const CommonModule = angular
@@ -8,9 +8,10 @@ export const CommonModule = angular
         loader
     ])
     .run(
-        ($transitions, cfpLoadingBar) => {
-            $transitions.onstart({}, cfpLoadingBar.start);
-            $transitions.onsuccess({}, cfpLoadingBar.complete);
+        ($transitions, $log, cfpLoadingBar) => {
+            $transitions.onStart({}, cfpLoadingBar.start);
+            $transitions.onSuccess({}, cfpLoadingBar.complete);
+            $log.debug("Initialized CommonModule")
         }
     )
     .name;

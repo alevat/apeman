@@ -6,14 +6,15 @@ import {CommonModule} from './common/common.module';
 
 const app = angular
     .module('app', [
-        // ComponentsModule,
-        // CommonModule,
+        ComponentsModule,
+        CommonModule,
         uiRouter
     ])
     .config(() => {
         'ngInject';
     })
     .component('apeman', AppComponent)
+    .run(($log) => {$log.debug('Initialized AppModule');})
     .name;
 
 export default app;

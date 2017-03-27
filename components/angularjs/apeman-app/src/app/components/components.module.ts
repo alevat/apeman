@@ -5,4 +5,5 @@ export const ComponentsModule = angular
     .module('app.components', [
         ProjectModule
     ])
+    .run(($log) => {$log.debug("Initialized ComponentsModule")})
     .name;
