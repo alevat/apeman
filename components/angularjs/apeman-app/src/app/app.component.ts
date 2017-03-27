@@ -1,5 +1,6 @@
 import {IComponentOptions} from "angular";
+const template = require('./app.html');
 
 export const AppComponent: IComponentOptions = {
-    templateUrl: './app.html'
+    template: template
 };
