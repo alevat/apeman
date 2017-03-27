@@ -6,13 +6,17 @@ export const AuthModule = angular
     .module('components.auth', [
         uiRouter
     ])
-    .run(($transitions, $state, AuthService) => {
+    .run(($transitions, $state, $log, AuthService) => {
         'ngInject'
+        $log.debug('Initializing $transitions in AuthModule');
         $transitions.onStart({
             to: 'auth.*'
         }, () => {
             if (AuthService.isAuthenticated()) {
+                $log.debug('Authenticated user attempted to access auth resource: redirecting to app');
                 return $state.target('app');
+            } else {
+                $log.debug('Authenticated user accessing restricted resource: ok');
             }
         });
     })

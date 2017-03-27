@@ -8,7 +8,7 @@ const app = angular
     .module('app', [
         // ComponentsModule,
         // CommonModule,
-        // uiRouter
+        uiRouter
     ])
     .config(() => {
         'ngInject';

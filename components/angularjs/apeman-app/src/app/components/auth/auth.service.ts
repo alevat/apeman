@@ -1,10 +1,14 @@
+import {ILogService} from "angular";
 export class AuthService {
 
-    constructor() {
+    static $inject: string[] = ['$log'];
+
+    constructor(private $log : ILogService) {
         'ngInject'
     }
 
-    isAuthentciated() {
+    isAuthenticated() {
+        this.$log.debug('Invoked AuthService.isAuthenticated()');
         return true;
     }
 
