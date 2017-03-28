@@ -1,7 +1,9 @@
 import * as angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import {ILogService} from "@types/angular";
+
+import {ILogService} from '@types/angular';
 import {IStateProvider} from '@types/angular-ui-router';
+
 import {ProjectsComponent} from './projects.component';
 
 export const ProjectsModule = angular
@@ -17,13 +19,13 @@ export const ProjectsModule = angular
                 component: 'projects',
                 resolve: {
                     projects(ProjectService, $log: ILogService) {
-                        $log.debug('Binding ProjectsComonent.projects to ProjectService.getProjects()')
+                        $log.debug('Binding ProjectsComonent.projects to ProjectService.getProjects()');
                         return ProjectService.getProjects();
                     }
                 }
             });
     })
-    .run(($log) => {$log.debug("Initialized ProjectModule")})
+    .run(($log) => { $log.debug('Initialized ProjectModule'); })
     .name;
 
 export default ProjectsModule;

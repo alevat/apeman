@@ -1,8 +1,8 @@
 import * as angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import {AppComponent} from './app.component';
-import {ComponentsModule} from './components/components.module';
 import {CommonModule} from './common/common.module';
+import {ComponentsModule} from './components/components.module';
 
 const app = angular
     .module('app', [
@@ -21,7 +21,7 @@ const app = angular
         $urlRouterProvider.otherwise('/');
     })
     .component('apeman', AppComponent)
-    .run(($log) => {$log.debug('Initialized AppModule');})
+    .run(($log) => { $log.debug('Initialized AppModule'); })
     .name;
 
 export default app;

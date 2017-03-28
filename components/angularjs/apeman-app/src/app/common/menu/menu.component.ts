@@ -1,6 +1,6 @@
-import {IComponentOptions} from "angular";
+import {IComponentOptions} from 'angular';
 const template = require('./menu.html');
 
-export const MenuComponent : IComponentOptions = {
-    template: template
+export const MenuComponent: IComponentOptions = {
+    template
 };

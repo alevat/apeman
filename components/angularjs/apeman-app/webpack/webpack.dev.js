@@ -27,9 +27,14 @@ const config = {
     module: {
         rules: [
             {
+                enforce: 'pre',
                 test: /\.ts$/,
+                exclude: /node_modules/,
                 loader: 'tslint',
-                enforce: 'pre'
+                options: {
+                    emitErrors: true,
+                    failOnHint: true
+                }
             },
             {
                 test: /\.html$/,
@@ -43,13 +48,9 @@ const config = {
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
-                loader: 'file?name=fonts/[name].[ext]',
+                loader: 'file?name=fonts/[name].[ext]'
             }
         ]
-    },
-    tslint: {
-        emitErrors: true,
-        failOnHint: true
     }
 };
 

@@ -1,11 +1,11 @@
-import {IComponentOptions} from "angular";
+import {IComponentOptions} from 'angular';
 import { ProjectsController } from './projects.controller';
 const template = require('./projects.html');
 
 export const ProjectsComponent: IComponentOptions  = {
     bindings: {
-        projects:'<'
+        projects: '<'
     },
     controller: ProjectsController,
-    template: template
+    template
 };

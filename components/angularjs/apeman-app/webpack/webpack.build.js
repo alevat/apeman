@@ -22,6 +22,16 @@ const config = {
     module: {
         rules: [
             {
+                enforce: 'pre',
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                loader: 'tslint-loader',
+                options: {
+                    emitErrors: true,
+                    failOnHint: true
+                }
+            },
+            {
                 test: /\.html$/,
                 exclude: /node_modules/,
                 loader: 'html-loader'
@@ -32,10 +42,6 @@ const config = {
                 use: 'ts-loader'
             }
         ]
-    },
-    tslint: {
-        emitErrors: true,
-        failOnHint: true
     }
 };
 

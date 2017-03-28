@@ -11,7 +11,7 @@ export const CommonModule = angular
         ($transitions, $log, cfpLoadingBar) => {
             $transitions.onStart({}, cfpLoadingBar.start);
             $transitions.onSuccess({}, cfpLoadingBar.complete);
-            $log.debug("Initialized CommonModule")
+            $log.debug('Initialized CommonModule');
         }
     )
     .name;
