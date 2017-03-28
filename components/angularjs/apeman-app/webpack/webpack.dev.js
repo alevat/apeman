@@ -30,7 +30,7 @@ const config = {
                 enforce: 'pre',
                 test: /\.ts$/,
                 exclude: /node_modules/,
-                loader: 'tslint',
+                loader: 'tslint-loader',
                 options: {
                     emitErrors: true,
                     failOnHint: true
