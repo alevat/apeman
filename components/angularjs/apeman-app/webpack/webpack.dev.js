@@ -1,18 +1,23 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const rootPath = path.resolve(__dirname, '..');
+const sourcePath = path.join(rootPath, 'src');
+const destPath = path.join(rootPath, 'build/webapp');
+
 const config = {
-    context: path.resolve(__dirname, '..'),
+    context: sourcePath,
     devtool: 'source-map',
     devServer: {
+        contentBase: [destPath],
         proxy: {
             'api': 'http://localhost:8080/'
         }
     },
-    entry: './src/app/app.module.ts',
+    entry: './app/app.module.ts',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, '../build/webapp')
+        path: destPath
     },
     resolve: {
         extensions: ['.ts', '.js', '.json']
