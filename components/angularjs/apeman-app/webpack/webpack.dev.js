@@ -11,7 +11,7 @@ const config = {
     devServer: {
         contentBase: [destPath],
         proxy: {
-            'api': 'http://localhost:8080/'
+            '/api': 'http://localhost:8080/'
         }
     },
     entry: './app/app.module.ts',
@@ -24,7 +24,7 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: './index.html',
             inject: 'body',
             hash: true
         })

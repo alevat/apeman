@@ -49,6 +49,5 @@ task serve(type: NodeTask) {
     dependsOn npmInstall
     dependsOn
     script = getNodeScript('webpack-dev-server');
-    args = ['-d', '--progress', '--colors', '--inline', '--hot', '--open', '--content-base', 'build/webapp',
-        '--config', 'webpack/webpack.dev.js'];
+    args = ['-d', '--progress', '--colors', '--inline', '--hot', '--open', '--config', 'webpack/webpack.dev.js'];
 }
