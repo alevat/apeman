@@ -1,0 +1,18 @@
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+
+archivesBaseName = 'apeman-spring-boot'
+
+dependencies {
+    compile project(':components:java:rest-resources:api')
+    runtime project(':components:java:rest-resources:implementation')
+}
+
+clean.delete << file('src/main/webapp')
+
+task copyAngularApp(type: Copy, dependsOn: ':components:angularjs:apeman-app:build') {
+    from project(':components:angularjs:apeman-app').file('build/webapp')
+    into file('src/main/webapp')
+}
+
+processResources.dependsOn copyAngularApp

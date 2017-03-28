@@ -1,0 +1,53 @@
+import org.gradle.internal.os.OperatingSystem
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath "com.moowork.gradle:gradle-node-plugin:${gradle_node_plugin_version}"
+    }
+}
+
+apply plugin: 'com.moowork.node'
+
+ext.getNodeScript = { name ->
+    if (OperatingSystem.current().isWindows()) {
+        return file("${project.projectDir}/node_modules/${name}/bin/${name}.js")
+    } else {
+        return file("${project.projectDir}/node_modules/.bin/${name}")
+    }
+}
+
+task webpack(type: NodeTask) {
+    dependsOn npmInstall
+    script = getNodeScript('webpack');
+    args = ["--config", 'webpack/webpack.build.js']
+}
+
+task webpackDev(type: NodeTask) {
+    dependsOn npmInstall
+    script = getNodeScript('webpack');
+    args = ["--config", 'webpack/webpack.dev.js']
+}
+
+task build {
+    dependsOn webpack
+}
+
+task buildDev {
+    dependsOn webpackDev
+}
+
+task clean {
+    delete file('build')
+}
+
+task serve(type: NodeTask) {
+    dependsOn npmInstall
+    dependsOn
+    script = getNodeScript('webpack-dev-server');
+    args = ['-d', '--progress', '--colors', '--inline', '--hot', '--open', '--config', 'webpack/webpack.dev.js'];
+}

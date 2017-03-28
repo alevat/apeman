@@ -1,0 +1,32 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "eofline": false,
+    "no-consecutive-blank-lines": [
+      true,
+      2
+    ],
+    "no-var-requires": false,
+    "object-literal-sort-keys": false,
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape"
+    ],
+    "trailing-comma": [
+      false,
+      {
+        "singleline": "never"
+      }
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-module",
+      "check-type"
+    ]
+  }
+}
