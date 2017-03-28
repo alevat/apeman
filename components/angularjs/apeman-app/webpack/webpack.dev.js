@@ -3,6 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     context: path.resolve(__dirname, '..'),
+    devtool: 'source-map',
+    devServer: {
+        proxy: {
+            'api': 'http://localhost:8080/'
+        }
+    },
     entry: './src/app/app.module.ts',
     output: {
         filename: 'bundle.js',
@@ -21,6 +27,11 @@ const config = {
     module: {
         rules: [
             {
+                test: /\.ts$/,
+                loader: 'tslint',
+                enforce: 'pre'
+            },
+            {
                 test: /\.html$/,
                 exclude: /node_modules/,
                 loader: 'html-loader'
@@ -36,10 +47,9 @@ const config = {
             }
         ]
     },
-    devServer: {
-        proxy: {
-            'api': 'http://localhost:8080/'
-        }
+    tslint: {
+        emitErrors: true,
+        failOnHint: true
     }
 };
 

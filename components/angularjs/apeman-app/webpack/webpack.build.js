@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     context: path.resolve(__dirname, '..'),
+    devtool: 'source-map',
     entry: './src/app/app.module.ts',
     output: {
         filename: 'bundle.js',
@@ -31,6 +32,10 @@ const config = {
                 use: 'ts-loader'
             }
         ]
+    },
+    tslint: {
+        emitErrors: true,
+        failOnHint: true
     }
 };
 
