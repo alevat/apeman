@@ -10,8 +10,15 @@ const app = angular
         CommonModule,
         uiRouter
     ])
-    .config(() => {
-        'ngInject';
+    .config(($stateProvider: angular.ui.IStateProvider,
+             $urlRouterProvider: angular.ui.IUrlRouterProvider) => {
+        $stateProvider
+            .state('app', {
+                redirectTo: 'projects',
+                url: '/app',
+                component: 'apeman'
+            });
+        $urlRouterProvider.otherwise('/');
     })
     .component('apeman', AppComponent)
     .run(($log) => {$log.debug('Initialized AppModule');})

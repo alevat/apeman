@@ -35,6 +35,11 @@ const config = {
                 loader: 'file?name=fonts/[name].[ext]',
             }
         ]
+    },
+    devServer: {
+        proxy: {
+            'api': 'http://localhost:8080/'
+        }
     }
 };
 

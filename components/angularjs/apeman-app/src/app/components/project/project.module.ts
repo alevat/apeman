@@ -1,21 +1,14 @@
 import * as angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import { ProjectComponent } from './project.component';
+import {ProjectsModule} from './projects/projects.module';
+import {ProjectService} from "./project.service";
 
 export const ProjectModule = angular
-    .module('project', [
-        uiRouter
+    .module('components.project', [
+        uiRouter,
+        ProjectsModule
     ])
-    .component('project', ProjectComponent)
-    .config(($stateProvider: angular.ui.IStateProvider,
-             $urlRouterProvider: angular.ui.IUrlRouterProvider) => {
-        $stateProvider
-            .state('project', {
-                url: '/project',
-                component: 'project'
-            });
-        $urlRouterProvider.otherwise('/');
-    })
+    .service('ProjectService', ProjectService)
     .run(($log) => {$log.debug("Initialized ProjectModule")})
     .name;
 

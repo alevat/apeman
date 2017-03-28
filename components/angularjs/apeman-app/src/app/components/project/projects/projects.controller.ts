@@ -1,4 +1,4 @@
 import {IController} from "angular";
-export class ProjectController {
+export class ProjectsController {
 
 }
