@@ -1,6 +1,6 @@
 import * as angular from 'angular';
 import * as loader from 'angular-loading-bar';
-import { HomeModule } from './home/home.module';
+import {HomeModule} from './home/home.module';
 
 export const CommonModule = angular
     .module('app.common', [

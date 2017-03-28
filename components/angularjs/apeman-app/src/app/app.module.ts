@@ -14,11 +14,11 @@ const app = angular
              $urlRouterProvider: angular.ui.IUrlRouterProvider) => {
         $stateProvider
             .state('app', {
-                redirectTo: 'projects',
+                redirectTo: 'home',
                 url: '/app',
                 component: 'apeman'
             });
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/home');
     })
     .component('apeman', AppComponent)
     .run(($log) => { $log.debug('Initialized AppModule'); })

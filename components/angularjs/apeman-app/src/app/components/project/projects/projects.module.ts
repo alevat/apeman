@@ -25,7 +25,7 @@ export const ProjectsModule = angular
                 }
             });
     })
-    .run(($log) => { $log.debug('Initialized ProjectModule'); })
+    .run(($log) => { $log.debug('Initialized ProjectsModule'); })
     .name;
 
 export default ProjectsModule;
