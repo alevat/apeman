@@ -15,12 +15,12 @@ apply plugin: 'com.moowork.node'
 
 ext.getNodeScript = { name ->
     if (OperatingSystem.current().isWindows()) {
-        def scriptDirectoryPath = "${project.projectDir}/node_modules/${name}/bin/";
+        def scriptDirectoryPath = "${project.projectDir}/node_modules/${name}/bin/"
         // Find either "${name}.js" or "${name}"; e.g. "karma.js" if exists, or "karma" if not
         ["${name}.js", "${name}"].each { fileName ->
             def file = file(scriptDirectoryPath + fileName);
             if (file.exists()) {
-                return file;
+                return file
             }
         }
     } else {
