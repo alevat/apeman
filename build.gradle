@@ -7,6 +7,7 @@ buildscript {
         classpath "org.asciidoctor:asciidoctor-gradle-plugin:${asciidoctor_gradle_plugin_version}"
         classpath "io.spring.gradle:dependency-management-plugin:${dependency_management_plugin_version}"
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}"
+        classpath "org.junit.platform:junit-platform-gradle-plugin:${junit_platform_version}"
     }
 }
 
@@ -21,6 +22,8 @@ allprojects {
     version = '0.0.1'
 }
 
+task test
+
 def javaProjects = subprojects.findAll {it.project.path.startsWith(':components:java')}
 
 configure(javaProjects) {
@@ -30,6 +33,7 @@ configure(javaProjects) {
 
     apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.junit.platform.gradle.plugin'
 
     sourceCompatibility = java_source_compatibility
     targetCompatibility = java_target_compatibility
@@ -42,6 +46,19 @@ configure(javaProjects) {
     dependencies {
         compile 'org.springframework.boot:spring-boot-starter-web'
         compile "com.google.guava:guava:${guava_version}"
+
+        testCompile"org.junit.jupiter:junit-jupiter-api:${junit_jupiter_version}"
+        testRuntime "org.junit.jupiter:junit-jupiter-engine:${junit_jupiter_version}"
+    }
+    junitPlatform {
+        engines {
+             include 'junit-jupiter'
+        }
+        tags {
+            exclude 'slow'
+        }
+        includeClassNamePattern '.*Test'
+        platformVersion junit_platform_version
     }
 }
 
