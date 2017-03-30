@@ -32,6 +32,7 @@ configure(javaProjects) {
 
     apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
+    apply from:"${rootDir}/gradle/code-analysis.gradle"
 
     sourceCompatibility = java_source_compatibility
     targetCompatibility = java_target_compatibility
