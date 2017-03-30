@@ -21,6 +21,8 @@ allprojects {
     version = '0.0.1'
 }
 
+task test
+
 def javaProjects = subprojects.findAll {it.project.path.startsWith(':components:java')}
 
 configure(javaProjects) {
@@ -42,6 +44,8 @@ configure(javaProjects) {
     dependencies {
         compile 'org.springframework.boot:spring-boot-starter-web'
         compile "com.google.guava:guava:${guava_version}"
+
+        testCompile "junit:junit:${junit_version}"
     }
 }
 
