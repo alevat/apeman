@@ -1,0 +1,19 @@
+apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+
+checkstyle {
+    configFile = file("$rootProject.projectDir/gradle/checkstyle.xml")
+}
+
+pmd {
+    consoleOutput = true
+
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}

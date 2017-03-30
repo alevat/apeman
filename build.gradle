@@ -1,11 +1,15 @@
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
 
     dependencies {
-        classpath "org.asciidoctor:asciidoctor-gradle-plugin:${asciidoctor_gradle_plugin_version}"
+        classpath "gradle.plugin.com.palantir:jacoco-coverage:${jacoco_coverage_version}"
         classpath "io.spring.gradle:dependency-management-plugin:${dependency_management_plugin_version}"
+        classpath "org.asciidoctor:asciidoctor-gradle-plugin:${asciidoctor_gradle_plugin_version}"
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}"
     }
 }
@@ -21,6 +25,8 @@ allprojects {
     version = '0.0.1'
 }
 
+task test
+
 def javaProjects = subprojects.findAll {it.project.path.startsWith(':components:java')}
 
 configure(javaProjects) {
@@ -30,6 +36,8 @@ configure(javaProjects) {
 
     apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
+    apply from:"${rootDir}/gradle/code-analysis.gradle"
+    apply from:"${rootDir}/gradle/code-coverage.gradle"
 
     sourceCompatibility = java_source_compatibility
     targetCompatibility = java_target_compatibility
@@ -42,6 +50,8 @@ configure(javaProjects) {
     dependencies {
         compile 'org.springframework.boot:spring-boot-starter-web'
         compile "com.google.guava:guava:${guava_version}"
+
+        testCompile "junit:junit:${junit_version}"
     }
 }
 
