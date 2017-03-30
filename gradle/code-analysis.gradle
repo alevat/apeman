@@ -1,5 +1,11 @@
 apply plugin: 'checkstyle'
+apply plugin: 'pmd'
 
 checkstyle {
     configFile = file("$rootProject.projectDir/gradle/checkstyle.xml")
+}
+
+pmd {
+    consoleOutput = true
+
 }
