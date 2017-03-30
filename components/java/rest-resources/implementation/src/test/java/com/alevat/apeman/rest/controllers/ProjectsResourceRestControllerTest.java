@@ -1,15 +1,15 @@
 package com.alevat.apeman.rest.controllers;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.Assert.assertNotNull;
 
-class ProjectsResourceRestControllerTest {
+public class ProjectsResourceRestControllerTest {
 
     private ProjectsResourceRestController controller = new ProjectsResourceRestController();
 
     @Test
-    void getProjects_ShouldReturnAList() {
+    public void getProjects_ShouldReturnAList() {
         assertNotNull(controller.getProjects());
     }
 
