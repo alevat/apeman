@@ -4,32 +4,3 @@ jacocoCoverage {
     reportThreshold 0.80, LINE
     reportThreshold 0.70, BRANCH
 }
-
-jacocoTestReport {
-    reports {
-        xml.enabled false
-        csv.enabled false
-//        html.destination "${buildDir}/jacocoHtml"
-    }
-}
-
-//jacocoTestCoverageVerification {
-//    violationRules {
-//        rule {
-//            element = 'BUNDLE'
-//            limit {
-//                counter = 'LINE'
-//                value = 'TOTALCOUNT'
-//                minimum = 90
-//            }
-//        }
-//        rule {
-//            element = 'BUNDLE'
-//            limit {
-//                counter = 'BRANCH'
-//                value = 'TOTALCOUNT'
-//                minimum = 80
-//            }
-//        }
-//    }
-//}
