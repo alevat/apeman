@@ -109,9 +109,6 @@
         <property name="illegalPkgs" value="com.beust,org.testng.collections"/>
     </module>
     </module>
-    <module name="RegexpHeader">
-        <property name="headerFile" value="${checkstyleConfigDir}/required-header.txt"/>
-    </module>
     <module name="FileTabCharacter"/>
     <module name="RegexpSingleline">
         <property name="format" value="File \| Settings \| File Templates"/>

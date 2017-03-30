@@ -1,6 +1,5 @@
 apply plugin: 'checkstyle'
 
 checkstyle {
-    showViolations = false
     configFile = file("$rootProject.projectDir/gradle/checkstyle.xml")
 }
