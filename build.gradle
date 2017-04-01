@@ -27,7 +27,9 @@ allprojects {
 
 task test
 
-def javaProjects = subprojects.findAll {it.project.path.startsWith(':components:java')}
+def javaProjects = subprojects.findAll {
+    it.project.path.startsWith(':components:java') || it.project.name == 'bdd'
+}
 
 configure(javaProjects) {
     repositories {
