@@ -8,3 +8,8 @@
 
 ### Install Node.js
 
+### Install ChromeDriver
+
+* Download [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
+* Add the driver to your system executable path
+    * Windows: Add the folder containing chromedriver.exe to your System Path environement variable.

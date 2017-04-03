@@ -1,7 +1,10 @@
 Feature: Project List Page
 
-  Scenario: A user can view the list of Projects.
+  Background:
+    Given that a Project Manager is logged in
+    And that Projects exist in the system
 
-    Given that Projects exist in the system
-    When a User selects Projects from the Menu
-    Then the User sees a list of Projects
+  Scenario: A Project Manager can view the list of Projects.
+
+    When a Project Manager selects Projects from the Menu
+    Then the Project Manager sees a list of Projects
