@@ -8,18 +8,20 @@ import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.targets.Target.the;
 
 public class SelectMenuItem implements Task {
 
     private final String menuItem;
 
-    private SelectMenuItem(String menuItem) {
+    public SelectMenuItem(String menuItem) {
         this.menuItem = menuItem;
     }
+
     @Override
-    public <T extends Actor> void performAs(T actor) {
-        Target menuItemTarget = Target.the("menu item").located(By.linkText(menuItem));
-        Click.on(menuItemTarget);
+    public <T extends Actor> void performAs(T theActor) {
+        Target menuItemTarget = the("menu item").located(By.linkText(menuItem));
+        theActor.attemptsTo(Click.on(menuItemTarget));
     }
 
     public static Performable named(String menuItem) {

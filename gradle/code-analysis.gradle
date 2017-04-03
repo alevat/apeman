@@ -11,6 +11,10 @@ pmd {
 
 }
 
+findbugsTest {
+    excludeFilter = file("$rootProject.projectDir/gradle/findbugs-exclude-bugs-test.xml")
+}
+
 tasks.withType(FindBugs) {
     reports {
         xml.enabled false

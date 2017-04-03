@@ -16,4 +16,14 @@ dependencies {
     testCompile "net.serenity-bdd:serenity-junit:${serenity_version}"
 }
 
+test {
+    exclude '**/*'
+}
+
+task bdd(dependsOn: ['bddTest', 'aggregate', 'checkOutcomes']);
+
+task bddTest(type: Test) {}
+
+aggregate.mustRunAfter bddTest
+
 gradle.startParameter.continueOnFailure = true
