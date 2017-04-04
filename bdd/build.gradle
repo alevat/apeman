@@ -1,0 +1,29 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:${serenity_version}")
+    }
+}
+
+apply plugin: 'net.serenity-bdd.aggregator'
+
+dependencies {
+    testCompile "net.serenity-bdd:serenity-core:${serenity_version}"
+    testCompile "net.serenity-bdd:serenity-cucumber:${serenity_cucumber_version}"
+    testCompile "net.serenity-bdd:serenity-junit:${serenity_version}"
+}
+
+test {
+    exclude '**/*'
+}
+
+task bdd(dependsOn: ['bddTest', 'aggregate', 'checkOutcomes']);
+
+task bddTest(type: Test) {}
+
+aggregate.mustRunAfter bddTest
+
+gradle.startParameter.continueOnFailure = true
