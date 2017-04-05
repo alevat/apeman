@@ -1,5 +1,3 @@
-import org.gradle.internal.os.OperatingSystem
-
 buildscript {
     repositories {
         maven {
@@ -13,31 +11,14 @@ buildscript {
 
 apply plugin: 'com.moowork.node'
 
-ext.getNodeScript = { name ->
-    if (OperatingSystem.current().isWindows()) {
-        def scriptDirectoryPath = "${project.projectDir}/node_modules/${name}/bin/"
-        // Find either "${name}.js" or "${name}"; e.g. "karma.js" if exists, or "karma" if not
-        ["${name}.js", "${name}"].each { fileName ->
-            def file = file(scriptDirectoryPath + fileName);
-            if (file.exists()) {
-                return file
-            }
-        }
-    } else {
-        return file("${project.projectDir}/node_modules/.bin/${name}")
-    }
+task webpack(type: NpmTask) {
+    dependsOn npmInstall
+    args = ['run', 'build']
 }
 
-task webpack(type: NodeTask) {
+task webpackDev(type: NpmTask) {
     dependsOn npmInstall
-    script = getNodeScript('webpack');
-    args = ["--config", 'webpack/webpack.build.js']
-}
-
-task webpackDev(type: NodeTask) {
-    dependsOn npmInstall
-    script = getNodeScript('webpack');
-    args = ["--config", 'webpack/webpack.dev.js']
+    args = ['run', 'build-dev']
 }
 
 task build {
@@ -55,11 +36,14 @@ task clean {
 task serve(type: NodeTask) {
     dependsOn npmInstall
     dependsOn buildDev
-    script = getNodeScript('webpack-dev-server');
-    args = ['-d', '--progress', '--colors', '--inline', '--hot', '--open', '--config', 'webpack/webpack.dev.js'];
+    args = ['run', 'serve']
 }
 
-task test(type: NodeTask) {
+task test(type: NpmTask) {
     dependsOn buildDev
-    script = getNodeScript('karma');
+    args = ['run', 'test']
+}
+
+task check {
+    dependsOn test
 }

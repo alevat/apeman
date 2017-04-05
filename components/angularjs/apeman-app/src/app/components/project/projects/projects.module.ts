@@ -19,7 +19,7 @@ export const ProjectsModule = angular
                 component: 'projects',
                 resolve: {
                     projects(ProjectService, $log: ILogService) {
-                        $log.debug('Binding ProjectsComonent.projects to ProjectService.getProjects()');
+                        $log.debug('Binding ProjectsComponent.projects to ProjectService.getProjects()');
                         return ProjectService.getProjects();
                     }
                 }

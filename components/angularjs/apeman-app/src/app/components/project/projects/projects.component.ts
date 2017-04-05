@@ -1,5 +1,5 @@
 import {IComponentOptions} from 'angular';
-import { ProjectsController } from './projects.controller';
+import {ProjectsController} from './projects.controller';
 const template = require('./projects.html');
 
 export const ProjectsComponent: IComponentOptions  = {
