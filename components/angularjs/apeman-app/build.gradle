@@ -1,5 +1,3 @@
-import org.gradle.internal.os.OperatingSystem
-
 buildscript {
     repositories {
         maven {
@@ -13,24 +11,14 @@ buildscript {
 
 apply plugin: 'com.moowork.node'
 
-ext.getNodeScript = { name ->
-    if (OperatingSystem.current().isWindows()) {
-        return file("${project.projectDir}/node_modules/${name}/bin/${name}.js")
-    } else {
-        return file("${project.projectDir}/node_modules/.bin/${name}")
-    }
+task webpack(type: NpmTask) {
+    dependsOn npmInstall
+    args = ['run', 'build']
 }
 
-task webpack(type: NodeTask) {
+task webpackDev(type: NpmTask) {
     dependsOn npmInstall
-    script = getNodeScript('webpack');
-    args = ["--config", 'webpack/webpack.build.js']
-}
-
-task webpackDev(type: NodeTask) {
-    dependsOn npmInstall
-    script = getNodeScript('webpack');
-    args = ["--config", 'webpack/webpack.dev.js']
+    args = ['run', 'build-dev']
 }
 
 task build {
@@ -47,7 +35,20 @@ task clean {
 
 task serve(type: NodeTask) {
     dependsOn npmInstall
-    dependsOn
-    script = getNodeScript('webpack-dev-server');
-    args = ['-d', '--progress', '--colors', '--inline', '--hot', '--open', '--config', 'webpack/webpack.dev.js'];
+    dependsOn buildDev
+    args = ['run', 'serve']
+}
+
+task test(type: NpmTask) {
+    dependsOn buildDev
+    args = ['run', 'test']
+}
+
+task testStart(type: NpmTask) {
+    dependsOn buildDev
+    args = ['run', 'test-start']
+}
+
+task check {
+    dependsOn test
 }
