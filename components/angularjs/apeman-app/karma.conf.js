@@ -1,7 +1,7 @@
 module.exports = function(config) {
     config.set({
         basepath: '',
-        browsers: ['Chrome'],
+        browsers: ['PhantomJS'],
         files: [
             'build/webapp/bundle.js',
             {pattern: '**/*.spec.ts', watched: false},

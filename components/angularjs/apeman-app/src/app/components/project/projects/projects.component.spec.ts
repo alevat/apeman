@@ -8,10 +8,10 @@ describe('Service ProjectService', () => {
         angular.mock.module("components.project.projects");
     });
     beforeEach(inject(function(_$componentController_) {
-        var bindings = {projects: [{name: 'project1'}, {name: 'project2'}]};
+        var bindings = {projects: [{name: 'project'}]};
         controller = _$componentController_('projects', null, bindings);
     }));
-    it('should populate projects from the project.service', () => {
-        expect(controller.projects.length).toBe(2);
+    it('should expose bound projects', () => {
+        expect(controller.projects[0].name).toBe('project');
     });
 });
