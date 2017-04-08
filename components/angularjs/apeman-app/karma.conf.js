@@ -1,18 +1,25 @@
 module.exports = function(config) {
     config.set({
         basepath: '',
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
         files: [
-            'node_modules/angular/angular.js',
-            'node_modules/angular-mocks/angular-mocks.js',
-            'node_modules/angular-ui-router/release/angular-ui-router.js',
             'build/webapp/bundle.js',
             {pattern: '**/*.spec.ts', watched: false},
         ],
         frameworks: ['jasmine'],
+        mime: {
+            'text/x-typescript': ['ts','tsx']
+        },
         preprocessors: {
             '**/*.spec.ts': ['webpack', 'sourcemap'],
         },
+        plugins: [
+            'karma-jasmine',
+            'karma-chrome-launcher',
+            'karma-phantomjs-launcher',
+            'karma-sourcemap-loader',
+            'karma-webpack'
+        ],
         webpack: {
             devtool: 'inline-source-map',
             resolve: {

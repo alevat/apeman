@@ -44,6 +44,11 @@ task test(type: NpmTask) {
     args = ['run', 'test']
 }
 
+task testStart(type: NpmTask) {
+    dependsOn buildDev
+    args = ['run', 'test-start']
+}
+
 task check {
     dependsOn test
 }
