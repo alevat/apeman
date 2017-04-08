@@ -5,7 +5,7 @@ import {ProjectsController} from './projects.controller';
 describe('Service ProjectService', () => {
     var controller: ProjectsController;
     beforeEach(() => {
-        angular.mock.module("components.project.projects");
+        angular.mock.module('components.project.projects');
     });
     beforeEach(inject(function(_$componentController_) {
         var bindings = {projects: [{name: 'project'}]};
