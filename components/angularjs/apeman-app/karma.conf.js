@@ -16,7 +16,10 @@ module.exports = function(config) {
                     }
                 }
             },
-            tsconfig: './tsconfig.jason'
+            reports: {
+                html: 'build/reports/coverage'
+            },
+            tsconfig: './tsconfig.json'
         },
         mime: {
             'text/x-typescript': ['ts','tsx']
