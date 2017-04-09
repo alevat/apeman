@@ -31,6 +31,7 @@ task buildDev {
 
 task clean {
     delete file('build')
+    delete file('coverage')
 }
 
 task serve(type: NodeTask) {
