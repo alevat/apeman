@@ -11,12 +11,33 @@ buildscript {
 
 apply plugin: 'com.moowork.node'
 
+npmInstall {
+    inputs.file "${projectDir}/package.json"
+    outputs.dir "${projectDir}/node_modules"
+
+    doLast {
+        println()   // workaround for ProgressCompleteEvent failure
+    }
+}
+
 task webpack(type: NpmTask) {
+    inputs.dir "${projectDir}/src"
+    inputs.file "${projectDir}/karma.conf.js"
+    inputs.file "${projectDir}/package.json"
+    inputs.file "${projectDir}/tsconfig.json"
+    inputs.file "${projectDir}/webpack/webpack.build.js"
+    outputs.dir "${projectDir}/build/webapp"
     dependsOn npmInstall
     args = ['run', 'build']
 }
 
 task webpackDev(type: NpmTask) {
+    inputs.dir "${projectDir}/src"
+    inputs.file "${projectDir}/karma.conf.js"
+    inputs.file "${projectDir}/package.json"
+    inputs.file "${projectDir}/tsconfig.json"
+    inputs.file "${projectDir}/webpack/webpack.dev.js"
+    outputs.dir "${projectDir}/build/webapp"
     dependsOn npmInstall
     args = ['run', 'build-dev']
 }
@@ -30,8 +51,7 @@ task buildDev {
 }
 
 task clean {
-    delete file('build')
-    delete file('coverage')
+    delete file("${projectDir}/build")
 }
 
 task serve(type: NodeTask) {
@@ -41,12 +61,27 @@ task serve(type: NodeTask) {
 }
 
 task test(type: NpmTask) {
-    dependsOn buildDev
+    dependsOn npmInstall
+    inputs.dir "${projectDir}/src"
+    inputs.file "${projectDir}/karma.conf.js"
+    inputs.file "${projectDir}/package.json"
+    inputs.file "${projectDir}/tsconfig.json"
+    outputs.dir "${projectDir}/build/test-marker"
     args = ['run', 'test']
+    doLast {
+        def markerDir = file("${projectDir}/build/test-marker")
+        markerDir.setLastModified(System.currentTimeMillis())
+        println()   // workaround for ProgressCompleteEvent failure
+    }
 }
 
 task testStart(type: NpmTask) {
-    dependsOn buildDev
+    dependsOn npmInstall
+    inputs.dir "${projectDir}/src"
+    inputs.file "${projectDir}/karma.conf.js"
+    inputs.file "${projectDir}/package.json"
+    inputs.file "${projectDir}/tsconfig.json"
+    outputs.dir "${projectDir}/coverage"
     args = ['run', 'test-start']
 }
 

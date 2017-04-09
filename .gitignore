@@ -28,7 +28,6 @@
 # Directories
 ######################
 **/build/**
-**/coverage/**
 **/target/**
 
 
