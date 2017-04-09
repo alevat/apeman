@@ -1,8 +1,6 @@
 import * as angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import {IStateProvider} from '@types/angular-ui-router';
-
 import {MenuModule} from '../menu/menu.module';
 import {HomeComponent} from './home.component';
 
@@ -12,7 +10,7 @@ export const HomeModule = angular
         MenuModule
     ])
     .component('home', HomeComponent)
-    .config(($stateProvider: IStateProvider) => {
+    .config(($stateProvider: angular.ui.IStateProvider) => {
         $stateProvider
             .state('home', {
                 url: '/home',
