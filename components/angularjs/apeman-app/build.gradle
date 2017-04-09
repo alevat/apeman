@@ -81,7 +81,6 @@ task testStart(type: NpmTask) {
     inputs.file "${projectDir}/karma.conf.js"
     inputs.file "${projectDir}/package.json"
     inputs.file "${projectDir}/tsconfig.json"
-    outputs.dir "${projectDir}/coverage"
     args = ['run', 'test-start']
 }
 
