@@ -1,0 +1,6 @@
+tocTab[tocTab.length] = new Array("0.3:1", "", "Use Case Model", "EARoot/EA3/EA25.htm", "180.png", "2", "0", "", "Use Case diagram0","{D5715F9A-2501-431d-BAB9-13C2206C6EB6}");
+tocTab[tocTab.length] = new Array("0.3:2", "", "Manage Project Portfolio", "EARoot/EA3/EA28.htm", "7.png", "E4", "0", "", "UseCase0","{43136B98-BB31-4162-8409-E25E3C2A2583}");
+tocTab[tocTab.length] = new Array("0.3:3", "", "Manage Task Board", "EARoot/EA3/EA29.htm", "7.png", "E5", "0", "", "UseCase0","{72B9F6EE-013F-4b31-AF2E-73F1BF00AEE3}");
+tocTab[tocTab.length] = new Array("0.3:4", "", "Project Manager", "EARoot/EA3/EA30.htm", "6.png", "E3", "0", "", "Actor0","{FDFFC821-C4B2-4547-88FC-A7B605F0DDF5}");
+tocTab[tocTab.length] = new Array("0.3:5", "", "Project Member", "EARoot/EA3/EA31.htm", "6.png", "E7", "0", "", "Actor0","{3082E567-FEDA-4016-AD3B-4304A9E4E470}");
+tocTab[tocTab.length] = new Array("0.3:6", "", "Use Task Board", "EARoot/EA3/EA32.htm", "7.png", "E6", "0", "", "UseCase0","{0E8335DA-D7CD-4b69-A1FF-DE68D38A62D7}");
