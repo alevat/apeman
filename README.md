@@ -1,5 +1,9 @@
 # Agile Project Estimation and Management (APEMAN)
 
+*APEMAN* (short for Agile Project Estimation and Management) is envisioned as a set of integrated tools to track
+all aspects of an Agile project, adding as little overhead as possible while capturing and tracking project
+measurements to support estimation, project tracking and project controls.
+
 ## Install Pre-Requisites
 
 ### Install Java SE 8

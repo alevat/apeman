@@ -1,3 +1,14 @@
 = Agile Project Estimation and Management (APEMAN)
 
-link:requirements/documents/vision.html[Vision]
+image:images/ape_reactions.gif[]
+
+APEMAN (short for Agile Project Estimation and Management) is envisioned as a set of integrated tools to track
+all aspects of an Agile project, adding as little overhead as possible while capturing and tracking project
+measurements to support estimation, project tracking and project controls.
+
+For now, the software under development and associated content can be found
+within the APEMAN GitHub project. In addition to the root of the project the
+following pages may be useful:
+
+* link:https://github.com/alevat/apeman/wiki[Project Wiki]
+* link:https://github.com/alevat/apeman/projects/1[Project Kanban Board]
