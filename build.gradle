@@ -58,9 +58,10 @@ configure(javaProjects) {
 }
 
 asciidoctor {
-    sourceDir = file('docs')
+    separateOutputDirs = false
+    sourceDir = file('docs-src')
     sources {
         include '/**/*.adoc'
     }
-    outputDir = file('build/docs')
+    outputDir = file('docs')
 }
