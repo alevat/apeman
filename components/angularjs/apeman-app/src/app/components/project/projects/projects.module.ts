@@ -12,7 +12,6 @@ export const ProjectsModule = angular
     .config(($stateProvider: angular.ui.IStateProvider) => {
         $stateProvider
             .state('projects', {
-                parent: 'app',
                 url: '/projects',
                 component: 'projects',
                 resolve: {

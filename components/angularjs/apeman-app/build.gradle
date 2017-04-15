@@ -54,7 +54,7 @@ task clean {
     delete file("${projectDir}/build")
 }
 
-task serve(type: NodeTask) {
+task serve(type: NpmTask) {
     dependsOn npmInstall
     dependsOn buildDev
     args = ['run', 'serve']
