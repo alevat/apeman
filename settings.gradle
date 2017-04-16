@@ -3,8 +3,11 @@ rootProject.name = 'apeman'
 include 'bdd'
 
 include 'components:angularjs:apeman-app'
+include 'components:java:persistence'
 include 'components:java:rest-resources:api'
 include 'components:java:rest-resources:implementation'
+include 'components:java:services:api'
+include 'components:java:services:implementation'
 include 'components:java:spring-boot'
 include 'components:java:shared-api'
 
