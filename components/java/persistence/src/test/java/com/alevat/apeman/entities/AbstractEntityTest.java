@@ -5,7 +5,8 @@ import org.junit.Test;
 import java.util.UUID;
 
 import static java.util.UUID.randomUUID;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class AbstractEntityTest {
@@ -26,12 +27,23 @@ public class AbstractEntityTest {
     }
 
     @Test
+    public void equals_ShouldFailForDifferentClass() {
+        TestEntity entity2 = new TestEntity() {};
+        assertThat(entity.equals(entity2), is(false));
+    }
+
+    @Test
     public void equals_ShouldPassForSameUuid() {
         UUID uuid = randomUUID();
         entity.setUuid(uuid);
         TestEntity entity2 = new TestEntity();
         entity2.setUuid(uuid);
         assertThat(entity.equals(entity2), is(true));
+    }
+
+    @Test
+    public void equals_ShouldPassForSameObject() {
+        assertThat(entity.equals(entity), is(true));
     }
 
     @Test
