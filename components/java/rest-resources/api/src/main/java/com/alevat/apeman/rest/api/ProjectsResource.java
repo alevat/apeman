@@ -1,6 +1,6 @@
 package com.alevat.apeman.rest.api;
 
-import com.alevat.apeman.api.dto.Project;
+import com.alevat.apeman.api.dto.ProjectDto;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -10,6 +10,6 @@ import java.util.List;
 public interface ProjectsResource {
 
     @RequestMapping(method = RequestMethod.GET)
-    List<Project> getProjects();
+    List<ProjectDto> getProjects();
 
 }

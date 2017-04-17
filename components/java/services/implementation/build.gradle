@@ -1,0 +1,8 @@
+dependencies {
+    apt "org.mapstruct:mapstruct-processor:${mapstruct_version}"
+
+    compile project(':components:java:services:api')
+    compile project(':components:java:persistence')
+
+    compile "org.mapstruct:mapstruct-jdk8:${mapstruct_version}"
+}
