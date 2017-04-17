@@ -4,8 +4,8 @@ apply plugin: 'org.springframework.boot'
 archivesBaseName = 'apeman-spring-boot'
 
 dependencies {
-    compile project(':components:java:rest-resources:api')
-    runtime project(':components:java:rest-resources:implementation')
+    compile project(':components:java:rest-resources:apeman-rest-api')
+    runtime project(':components:java:rest-resources:apeman-rest-implementation')
 }
 
 clean.delete << file('src/main/webapp')
