@@ -6,6 +6,8 @@ archivesBaseName = 'apeman-spring-boot'
 dependencies {
     compile project(':components:java:rest-resources:apeman-rest-api')
     runtime project(':components:java:rest-resources:apeman-rest-implementation')
+
+    runtime 'com.zaxxer:HikariCP:2.6.1'
 }
 
 clean.delete << file('src/main/webapp')

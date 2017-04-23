@@ -1,3 +1,5 @@
 dependencies {
+    runtime 'org.liquibase:liquibase-core:3.5.3'
+
     testRuntime "com.h2database:h2:${h2_version}"
 }

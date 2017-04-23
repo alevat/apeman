@@ -17,7 +17,6 @@ public class Project extends AbstractEntity {
     @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID uuid;
 
-
     @Column(name = "name")
     private String name;
 
