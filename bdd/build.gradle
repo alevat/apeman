@@ -22,7 +22,9 @@ test {
 
 task bdd(dependsOn: ['bddTest', 'aggregate', 'checkOutcomes']);
 
-task bddTest(type: Test) {}
+task bddTest(type: Test) {
+    outputs.upToDateWhen { false }
+}
 
 aggregate.mustRunAfter bddTest
 

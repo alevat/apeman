@@ -10,6 +10,10 @@ dependencies {
     runtime 'com.zaxxer:HikariCP:2.6.1'
 }
 
+bootRun {
+    args = ['--spring.profiles.active=dev']
+}
+
 clean.delete << file('src/main/webapp')
 
 task copyAngularApp(type: Copy, dependsOn: ':components:angularjs:apeman-app:build') {
