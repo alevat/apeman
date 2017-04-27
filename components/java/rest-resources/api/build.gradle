@@ -1,3 +1,5 @@
+archivesBaseName = 'apeman-rest-api'
+
 dependencies {
-    compile project(':components:java:shared-api')
+    compile project(':components:java:apeman-shared-api')
 }

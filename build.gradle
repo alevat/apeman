@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath "gradle.plugin.com.palantir:jacoco-coverage:${jacoco_coverage_version}"
         classpath "io.spring.gradle:dependency-management-plugin:${dependency_management_plugin_version}"
+        classpath "net.ltgt.gradle:gradle-apt-plugin:${gradle_apt_plugin_version}"
         classpath "org.asciidoctor:asciidoctor-gradle-plugin:${asciidoctor_gradle_plugin_version}"
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}"
     }
@@ -38,6 +39,7 @@ configure(javaProjects) {
 
     apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'net.ltgt.apt'
     apply from:"${rootDir}/gradle/code-analysis.gradle"
     apply from:"${rootDir}/gradle/code-coverage.gradle"
 
@@ -50,9 +52,13 @@ configure(javaProjects) {
         }
     }
     dependencies {
-        compile 'org.springframework.boot:spring-boot-starter-web'
-        compile "com.google.guava:guava:${guava_version}"
+        compile "javax.inject:javax.inject:${javax_inject_version}"
 
+        compile "com.google.guava:guava:${guava_version}"
+        compile("org.springframework.boot:spring-boot-starter-data-jpa")
+        compile 'org.springframework.boot:spring-boot-starter-web'
+
+        testCompile('org.springframework.boot:spring-boot-starter-test')
         testCompile "junit:junit:${junit_version}"
     }
 }

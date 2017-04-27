@@ -11,9 +11,14 @@ buildscript {
 apply plugin: 'net.serenity-bdd.aggregator'
 
 dependencies {
+    testCompile project(':components:java:apeman-spring-boot-application')
+
     testCompile "net.serenity-bdd:serenity-core:${serenity_version}"
     testCompile "net.serenity-bdd:serenity-cucumber:${serenity_cucumber_version}"
     testCompile "net.serenity-bdd:serenity-junit:${serenity_version}"
+    testCompile "net.serenity-bdd:serenity-spring:${serenity_version}"
+
+    testRuntime 'org.yaml:snakeyaml:1.18'
 }
 
 test {
@@ -22,7 +27,9 @@ test {
 
 task bdd(dependsOn: ['bddTest', 'aggregate', 'checkOutcomes']);
 
-task bddTest(type: Test) {}
+task bddTest(type: Test) {
+    outputs.upToDateWhen { false }
+}
 
 aggregate.mustRunAfter bddTest
 

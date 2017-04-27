@@ -1,20 +1,22 @@
 package com.alevat.apeman.rest.controllers;
 
-import com.alevat.apeman.api.dto.Project;
+import com.alevat.apeman.api.dto.ProjectDto;
 import com.alevat.apeman.rest.api.ProjectsResource;
-import com.google.common.collect.Lists;
+import com.alevat.apeman.services.api.ProjectService;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.inject.Inject;
 import java.util.List;
 
 @RestController
 public class ProjectsResourceRestController implements ProjectsResource {
 
+    @Inject
+    private ProjectService service;
+
     @Override
-    public List<Project> getProjects() {
-        Project project = new Project();
-        project.setName("Hello World");
-        return Lists.newArrayList(project);
+    public List<ProjectDto> getProjects() {
+        return service.getAll();
     }
 
 }

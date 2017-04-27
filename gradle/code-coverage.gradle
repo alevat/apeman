@@ -1,6 +1,8 @@
 apply plugin: 'com.palantir.jacoco-coverage'
 
+def exclusionPattern = "!(SpringConfiguration)\\.java"
+
 jacocoCoverage {
-    reportThreshold 0.80, LINE
-    reportThreshold 0.70, BRANCH
+    reportThreshold 0.80, LINE, ~exclusionPattern
+    reportThreshold 0.70, BRANCH, ~exclusionPattern
 }

@@ -15,6 +15,11 @@ These are the essential links for the project:
 If not present, install the latest [Java 8 SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
 and set your `JAVA_HOME` environment variable accordingly.
 
+### Install MySQL Community Server 5.7.x
+
+If not present, install [MySQL Community Server 5.7.x](https://dev.mysql.com/downloads/mysql/)
+using default options for a Developer Configuration.
+
 ### Install Gradle
 
 APEMAN uses Gradle as its build tool. If not present, download and install 
@@ -51,3 +56,11 @@ provides a debugging environment.
 * Clone the `git` repository:
 
         git clone git@github.com:alevat/apeman.git
+        
+* Create a new MySQL database for APEMAN.
+    * Create a new Schema named `apemandb`.
+    * Create a new MySQL user named `apeman` with the password `apeman` allowed to connect
+    from all hosts (`%`).
+    * Grant all permissions on `apemandb` to `apeman`.
+    
+    

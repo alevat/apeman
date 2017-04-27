@@ -1,3 +1,6 @@
 dependencies {
-    compile project(':components:java:rest-resources:api')
+    compile project(':components:java:rest-resources:apeman-rest-api')
+    compile project(':components:java:services:apeman-services-api')
+
+    runtime project(':components:java:services:apeman-services-implementation')
 }
